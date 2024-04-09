@@ -14,4 +14,16 @@ class PageController extends Controller
         $movies = Movie::all();
         return view('home', compact('movies'));
     }
+
+    public function getStars($vote)
+    {
+        $stars = [];
+        $vote = round($vote / 2);
+
+        for ($i = 0; $i < $vote; $i++) {
+            $stars[] = 'fa-solid fa-star';
+        }
+
+        return $stars;
+    }
 }

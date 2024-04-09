@@ -2,25 +2,26 @@
 
 @section('content')
 
-<div class="container">
+<div class="container text-center">
 
-    <h1>MOVIE LIST</h1>
-    <ul class="d-flex justify-content-between list-unstyled">
+    <h1 class="my-5 display-2">MOVIE LIST</h1>
+    <ul class="row justify-content-center list-unstyled gap-4">
 
         @foreach($movies as $movie)
-        <li>
-            {{$movie->title}}
+        <li class=" p-3 rounded-5 col-5">
+            <h2>{{$movie->title}}</h2>
+            <iframe src="{{ $movie->trailer }}" frameborder="0" allowfullscreen width='500' height='300'></iframe>
             <p>
-                {{$movie->original_title}}
+                Original title: <strong>{{$movie->original_title}}</strong>
             </p>
             <p>
-                {{$movie->nationality}}
+                Nationality: <i>{{$movie->nationality}}</i>
             </p>
             <p>
-                {{$movie->date}}
+                Release date: {{$movie->date}}
             </p>
             <p>
-                {{$movie->vote}}
+                Vote: {{$movie->vote}}/10
             </p>
         </li>
         @endforeach
